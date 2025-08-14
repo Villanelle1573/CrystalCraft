@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "crystal_craft:block/crystalcarving_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "crystal_craft:block/crystalcarving_table"
+    },
+    "facing=south": {
+      "model": "crystal_craft:block/crystalcarving_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "crystal_craft:block/crystalcarving_table",
+      "y": 270
+    }
+  }
+}
