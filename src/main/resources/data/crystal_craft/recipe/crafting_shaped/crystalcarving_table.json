@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "L": {
+      "item": "minecraft:leather"
+    },
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "P": {
+      "item": "minecraft:polished_deepslate"
+    }
+  },
+  "pattern": [
+    " L ",
+    "APA",
+    "PPP"
+  ],
+  "result": {
+    "count": 1,
+    "id": "crystal_craft:crystalcarving_table"
+  }
+}
