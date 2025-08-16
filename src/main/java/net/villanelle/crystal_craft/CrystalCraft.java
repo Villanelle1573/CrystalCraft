@@ -1,12 +1,10 @@
-package net.villanelle.crystalcraft;
+package net.villanelle.crystal_craft;
 
-import net.villanelle.crystalcraft.init.ModBlocks;
-import net.villanelle.crystalcraft.init.ModItemGroups;
-import net.villanelle.crystalcraft.init.ModItems;
+import net.minecraft.resources.ResourceLocation;
+import net.villanelle.crystal_craft.init.*;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.Blocks;
 import net.neoforged.bus.api.IEventBus;
@@ -32,8 +30,14 @@ public class CrystalCraft {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModItemGroups.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipeTypes.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+    }
+
+    public static @NotNull ResourceLocation of(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 
     private void commonSetup(FMLCommonSetupEvent event) {

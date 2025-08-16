@@ -1,4 +1,4 @@
-package net.villanelle.crystalcraft;
+package net.villanelle.crystal_craft;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
-package net.villanelle.crystalcraft.init;
+package net.villanelle.crystal_craft.init;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.villanelle.crystalcraft.CrystalCraft;
+import net.villanelle.crystal_craft.CrystalCraft;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(CrystalCraft.MOD_ID);

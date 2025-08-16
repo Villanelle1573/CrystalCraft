@@ -1,4 +1,4 @@
-package net.villanelle.crystalcraft.init;
+package net.villanelle.crystal_craft.init;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -7,7 +7,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.villanelle.crystalcraft.CrystalCraft;
+import net.villanelle.crystal_craft.CrystalCraft;
 
 import java.util.function.Supplier;
 

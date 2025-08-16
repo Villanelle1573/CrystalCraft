@@ -1,4 +1,4 @@
-package net.villanelle.crystalcraft.init;
+package net.villanelle.crystal_craft.init;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -6,8 +6,8 @@ import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.villanelle.crystalcraft.CrystalCraft;
-import net.villanelle.crystalcraft.block.CrystalCarvingTable;
+import net.villanelle.crystal_craft.CrystalCraft;
+import net.villanelle.crystal_craft.block.CrystalCarvingTable;
 
 import java.util.function.Supplier;
 

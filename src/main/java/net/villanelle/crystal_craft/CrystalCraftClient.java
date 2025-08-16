@@ -1,4 +1,4 @@
-package net.villanelle.crystalcraft;
+package net.villanelle.crystal_craft;
 
 import net.minecraft.client.Minecraft;
 import net.neoforged.api.distmarker.Dist;
@@ -9,6 +9,8 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.villanelle.crystal_craft.client.gui.screen.CrystalCarvingScreen;
+import net.villanelle.crystal_craft.init.ModMenuTypes;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = CrystalCraft.MOD_ID, dist = Dist.CLIENT)
@@ -20,6 +22,11 @@ public class CrystalCraftClient {
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+    }
+
+    @SubscribeEvent
+    static void onRegisterMenuScreens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) {
+        event.register(ModMenuTypes.CRYSTAL_CARVING_MENU.get(), CrystalCarvingScreen::new);
     }
 
     @SubscribeEvent
