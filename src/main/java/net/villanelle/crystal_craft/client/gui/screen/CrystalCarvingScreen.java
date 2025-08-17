@@ -13,10 +13,9 @@ public class CrystalCarvingScreen extends AbstractContainerScreen<CrystalCarving
 
     public CrystalCarvingScreen(CrystalCarvingMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
-        // 根据背景图设置GUI尺寸
         this.imageWidth = 176;
         this.imageHeight = 166;
-        this.inventoryLabelY = this.imageHeight - 94; // 调整玩家背包标签位置
+        this.inventoryLabelY = this.imageHeight - 94;
     }
 
     @Override

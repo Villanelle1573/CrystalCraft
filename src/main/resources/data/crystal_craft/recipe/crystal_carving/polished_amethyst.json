@@ -1,0 +1,16 @@
+{
+  "type": "crystal_craft:crystal_carving",
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    }
+  },
+  "pattern": [
+    "AA",
+    "AA"
+  ],
+  "result": {
+    "count": 4,
+    "id": "crystal_craft:polished_amethyst"
+  }
+}

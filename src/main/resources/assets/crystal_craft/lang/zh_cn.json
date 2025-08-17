@@ -1,7 +1,10 @@
 {
   "block.crystal_craft.crystalcarving_table": "晶雕台",
 
+  "item.crystal_craft.polished_amethyst": "磨制紫水晶",
+
   "gui.crystal_craft.crystalcarving_table": "晶体雕琢",
 
-  "creativetab.crystal_craft.crystal_craft_blocks": "晶饰工艺方块"
+  "creativetab.crystal_craft.crystal_craft_blocks": "晶饰工艺方块",
+  "creativetab.crystal_craft.crystal_craft_materials": "晶饰工艺材料"
 }

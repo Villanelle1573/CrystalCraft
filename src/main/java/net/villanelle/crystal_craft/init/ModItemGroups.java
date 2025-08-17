@@ -2,6 +2,7 @@ package net.villanelle.crystal_craft.init;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +22,15 @@ public class ModItemGroups {
                     .title(Component.translatable("creativetab.crystal_craft.crystal_craft_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.CRYSTAL_CARVING_TABLE);
+                    }).build());
+
+    public static final Supplier<CreativeModeTab> Crystal_Craft_Materials = CCT.register("crystal_craft_materials",
+            () -> CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(ModItems.POLISHED_AMETHYST.get()))
+                    .withTabsBefore(ResourceLocation.fromNamespaceAndPath(CrystalCraft.MOD_ID, "crystal_craft_blocks"))
+                    .title(Component.translatable("creativetab.crystal_craft.crystal_craft_materials"))
+                    .displayItems((itemDisplayParameters, output) -> {
+                        output.accept(ModItems.POLISHED_AMETHYST);
                     }).build());
 
     public static void register(IEventBus eventBus) {

@@ -1,5 +1,6 @@
 package net.villanelle.crystal_craft.recipe;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.HolderLookup;
@@ -16,15 +17,33 @@ import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.villanelle.crystal_craft.init.ModRecipeTypes;
 
+import java.util.List;
+import java.util.Map;
+
 public class CrystalCarvingRecipe implements Recipe<CrystalCarvingRecipe.Input> {
+    private final List<String> pattern;
+    private final Map<Character, Ingredient> key;
     private final NonNullList<Ingredient> ingredients;
     private final ItemStack result;
     private final ResourceLocation id;
 
-    public CrystalCarvingRecipe(ResourceLocation id, NonNullList<Ingredient> ingredients, ItemStack result) {
+    public CrystalCarvingRecipe(ResourceLocation id, List<String> pattern, Map<Character, Ingredient> key, ItemStack result) {
         this.id = id;
-        this.ingredients = ingredients;
+        this.pattern = pattern;
+        this.key = key;
         this.result = result;
+
+        this.ingredients = NonNullList.withSize(9, Ingredient.EMPTY);
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                if (row < pattern.size() && col < pattern.get(row).length()) {
+                    char c = pattern.get(row).charAt(col);
+                    if (c != ' ' && key.containsKey(c)) {
+                        this.ingredients.set(col + row * 3, key.get(c));
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -58,16 +77,74 @@ public class CrystalCarvingRecipe implements Recipe<CrystalCarvingRecipe.Input> 
     }
 
     public boolean matches(NonNullList<ItemStack> items, Level level) {
-        if (items.size() != ingredients.size()) {
-            return false;
+        int maxOffsetX = 3 - getMaxPatternWidth();
+        int maxOffsetY = 3 - pattern.size();
+
+        for (int offsetX = 0; offsetX <= maxOffsetX; offsetX++) {
+            for (int offsetY = 0; offsetY <= maxOffsetY; offsetY++) {
+                if (matchesAtPosition(items, offsetX, offsetY)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private int getMaxPatternWidth() {
+        int maxWidth = 0;
+        for (String row : pattern) {
+            maxWidth = Math.max(maxWidth, row.length());
+        }
+        return maxWidth;
+    }
+
+    private boolean matchesAtPosition(NonNullList<ItemStack> items, int offsetX, int offsetY) {
+        for (int row = 0; row < pattern.size(); row++) {
+            for (int col = 0; col < pattern.get(row).length(); col++) {
+                char patternChar = pattern.get(row).charAt(col);
+                int gridRow = row + offsetY;
+                int gridCol = col + offsetX;
+                int gridIndex = gridCol + gridRow * 3;
+
+                if (gridRow >= 3 || gridCol >= 3) {
+                    return false;
+                }
+
+                ItemStack actualItem = items.get(gridIndex);
+
+                if (patternChar == ' ') {
+                    if (!actualItem.isEmpty()) {
+                        return false;
+                    }
+                } else if (key.containsKey(patternChar)) {
+                    if (!key.get(patternChar).test(actualItem)) {
+                        return false;
+                    }
+                }
+            }
         }
 
-        for (int i = 0; i < ingredients.size(); i++) {
-            if (!ingredients.get(i).test(items.get(i))) {
-                return false;
+        for (int row = 0; row < 3; row++) {
+            for (int col = 0; col < 3; col++) {
+                boolean inPatternArea = (row >= offsetY && row < offsetY + pattern.size() &&
+                        col >= offsetX && col < offsetX + getPatternWidthAtRow(row - offsetY));
+
+                if (!inPatternArea) {
+                    int gridIndex = col + row * 3;
+                    if (!items.get(gridIndex).isEmpty()) {
+                        return false;
+                    }
+                }
             }
         }
         return true;
+    }
+
+    private int getPatternWidthAtRow(int row) {
+        if (row >= 0 && row < pattern.size()) {
+            return pattern.get(row).length();
+        }
+        return 0;
     }
 
     @Override
@@ -75,9 +152,22 @@ public class CrystalCarvingRecipe implements Recipe<CrystalCarvingRecipe.Input> 
         return true;
     }
 
+    public List<String> getPattern() {
+        return pattern;
+    }
+
+    public Map<Character, Ingredient> getKey() {
+        return key;
+    }
+
     public NonNullList<Ingredient> getIngredients() {
         return ingredients;
     }
+
+    public boolean checkMatchAtPosition(NonNullList<ItemStack> items, int offsetX, int offsetY) {
+        return matchesAtPosition(items, offsetX, offsetY);
+    }
+
 
     public record Input(NonNullList<ItemStack> items) implements RecipeInput {
         @Override
@@ -92,16 +182,29 @@ public class CrystalCarvingRecipe implements Recipe<CrystalCarvingRecipe.Input> 
     }
 
     public static class Serializer implements RecipeSerializer<CrystalCarvingRecipe> {
-        private static final MapCodec<CrystalCarvingRecipe> CODEC = RecordCodecBuilder.mapCodec(ins -> ins.group(
-            Ingredient.CODEC_NONEMPTY.listOf().fieldOf("ingredients").forGetter(CrystalCarvingRecipe::getIngredients),
-            ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
-        ).apply(ins, (ingredients, result) -> {
-            NonNullList<Ingredient> ingredientList = NonNullList.withSize(ingredients.size(), Ingredient.EMPTY);
-            for (int i = 0; i < ingredients.size(); i++) {
-                ingredientList.set(i, ingredients.get(i));
-            }
-            return new CrystalCarvingRecipe(ResourceLocation.parse("crystal_craft:crystal_carving"), ingredientList, result);
-        }));
+        private static final MapCodec<CrystalCarvingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                Codec.STRING.listOf().fieldOf("pattern").forGetter(CrystalCarvingRecipe::getPattern),
+                Codec.unboundedMap(Codec.STRING, Ingredient.CODEC).xmap(
+                        map ->{
+                            Map<Character, Ingredient> result = new java.util.HashMap<>();
+                            for (Map.Entry<String, Ingredient> entry : map.entrySet()) {
+                                if (entry.getKey().length() == 1) {
+                                    result.put(entry.getKey().charAt(0), entry.getValue());
+                                }
+                            }
+                            return result;
+                        },
+                        map -> {
+                            Map<String, Ingredient> result = new java.util.HashMap<>();
+                            for (Map.Entry<Character, Ingredient> entry : map.entrySet()) {
+                                result.put(String.valueOf(entry.getKey()), entry.getValue());
+                            }
+                            return result;
+                        }
+                ).fieldOf("key").forGetter(CrystalCarvingRecipe::getKey),
+                        ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result)
+                ).apply(instance, (pattern, key, result) ->
+                        new CrystalCarvingRecipe(ResourceLocation.parse("crystal_craft:crystal_carving"), pattern, key, result)));
 
         public static final StreamCodec<RegistryFriendlyByteBuf, CrystalCarvingRecipe> STREAM_CODEC = StreamCodec.of(
             Serializer::encode, Serializer::decode
@@ -118,19 +221,26 @@ public class CrystalCarvingRecipe implements Recipe<CrystalCarvingRecipe.Input> 
         }
 
         private static void encode(RegistryFriendlyByteBuf buf, CrystalCarvingRecipe recipe) {
-            buf.writeVarInt(recipe.ingredients.size());
-            for (Ingredient ingredient : recipe.ingredients) {
-                Ingredient.CONTENTS_STREAM_CODEC.encode(buf, ingredient);
+            buf.writeCollection(recipe.pattern, (b, s) -> b.writeUtf(s));
+            buf.writeInt(recipe.key.size());
+            for (Map.Entry<Character, Ingredient> entry : recipe.key.entrySet()) {
+                buf.writeChar(entry.getKey());
+                Ingredient.CONTENTS_STREAM_CODEC.encode(buf, entry.getValue());
             }
             ItemStack.STREAM_CODEC.encode(buf, recipe.result);
         }
 
         private static CrystalCarvingRecipe decode(RegistryFriendlyByteBuf buf) {
-            int size = buf.readVarInt();
-            NonNullList<Ingredient> ingredients = NonNullList.withSize(size, Ingredient.EMPTY);
-            ingredients.replaceAll(i -> Ingredient.CONTENTS_STREAM_CODEC.decode(buf));
+            List<String> pattern = buf.readList(b -> b.readUtf(32767));
+            int keySize = buf.readInt();
+            Map<Character, Ingredient> key = new java.util.HashMap<>();
+            for (int i = 0; i < keySize; i++) {
+                char c = buf.readChar();
+                Ingredient ingredient = Ingredient.CONTENTS_STREAM_CODEC.decode(buf);
+                key.put(c, ingredient);
+            }
             ItemStack result = ItemStack.STREAM_CODEC.decode(buf);
-            return new CrystalCarvingRecipe(ResourceLocation.parse("crystal_craft:crystal_carving"), ingredients, result);
+            return new CrystalCarvingRecipe(ResourceLocation.parse("crystal_craft:crystal_carving"), pattern, key, result);
         }
     }
 }
