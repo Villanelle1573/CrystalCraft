@@ -1,4 +1,7 @@
 package net.villanelle.crystal_craft.block;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
@@ -48,6 +51,11 @@ public class CrystalCarvingTable extends Block {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING);
+    }
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter world, BlockPos pos, CollisionContext context) {
+        return Block.box(0, 0, 0, 16, 12, 16);
     }
 
     @Nullable
