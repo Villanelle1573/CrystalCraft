@@ -15,7 +15,7 @@ public class ModBlockStatesProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        BlockModelBuilder modelCrystalCarvingTable = models().getBuilder("crystal_carving_table")
+        BlockModelBuilder modelCrystalCarvingTable = models().getBuilder("crystalcarving_table")
                 .parent(models().getExistingFile(mcLoc("block/block")))
                 .texture("particle", modLoc("block/crystalcarving_table_bottom"))
                 .texture("bottom", modLoc("block/crystalcarving_table_bottom"))
