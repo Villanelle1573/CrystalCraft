@@ -17,6 +17,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(ModBlocks.CRYSTAL_CARVING_TABLE.get());
+        dropSelf(ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+        dropSelf(ModBlocks.POLISHED_AMETHYST_STAIRS.get());
+        add(ModBlocks.POLISHED_AMETHYST_SLAB.get(),
+                block -> (createSlabItemTable(ModBlocks.POLISHED_AMETHYST_SLAB.get())));
     }
 
     @Override

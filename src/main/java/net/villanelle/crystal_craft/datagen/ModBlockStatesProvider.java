@@ -2,9 +2,12 @@ package net.villanelle.crystal_craft.datagen;
 
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.SlabBlock;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.villanelle.crystal_craft.CrystalCraft;
 import net.villanelle.crystal_craft.init.ModBlocks;
 
@@ -33,5 +36,27 @@ public class ModBlockStatesProvider extends BlockStateProvider {
                 .end();
 
         simpleBlockWithItem(ModBlocks.CRYSTAL_CARVING_TABLE.get(), modelCrystalCarvingTable);
+
+        blockWithItem(ModBlocks.POLISHED_AMETHYST_BLOCK);
+
+        stairsBlock(ModBlocks.POLISHED_AMETHYST_STAIRS.get(), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()));
+        slabBlock(ModBlocks.POLISHED_AMETHYST_SLAB.get(), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()));
+
+        blockItem(ModBlocks.POLISHED_AMETHYST_STAIRS);
+        blockItem(ModBlocks.POLISHED_AMETHYST_SLAB);
+    }
+
+    private void blockWithItem(DeferredBlock<?> deferredBlock) {
+        simpleBlockWithItem(deferredBlock.get(), cubeAll(deferredBlock.get()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock) {
+        simpleBlockItem(deferredBlock.get(),
+                new ModelFile.UncheckedModelFile("crystal_craft:block/" + deferredBlock.getId().getPath()));
+    }
+
+    private void blockItem(DeferredBlock<?> deferredBlock, String appendix) {
+        simpleBlockItem(deferredBlock.get(),
+                new ModelFile.UncheckedModelFile("crystal_craft:block/" + deferredBlock.getId().getPath() + appendix));
     }
 }

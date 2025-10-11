@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "crystal_craft:block/polished_amethyst_slab"
+    },
+    "type=double": {
+      "model": "crystal_craft:block/polished_amethyst_block"
+    },
+    "type=top": {
+      "model": "crystal_craft:block/polished_amethyst_slab_top"
+    }
+  }
+}

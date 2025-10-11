@@ -7,8 +7,11 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.StairBlock;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.villanelle.crystal_craft.init.ModBlocks;
+import net.villanelle.crystal_craft.init.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -28,5 +31,22 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .define('P', Items.POLISHED_DEEPSLATE)
                 .unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_BLOCK)
+                .pattern("PP")
+                .pattern("PP")
+                .define('P', ModItems.POLISHED_AMETHYST)
+                .unlockedBy(getHasName(ModItems.POLISHED_AMETHYST), has(ModItems.POLISHED_AMETHYST))
+                .save(recipeOutput);
+
+        stairBuilder(ModBlocks.POLISHED_AMETHYST_STAIRS, Ingredient.of(ModBlocks.POLISHED_AMETHYST_BLOCK))
+                .unlockedBy(getHasName(ModBlocks.POLISHED_AMETHYST_BLOCK), has(ModBlocks.POLISHED_AMETHYST_BLOCK))
+                .save(recipeOutput);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_STAIRS.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get(), 2);
     }
 }

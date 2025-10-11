@@ -1,5 +1,8 @@
 {
   "block.crystal_craft.crystalcarving_table": "Crystal Carving Table",
+  "block.crystal_craft.polished_amethyst_block": "Polished Amethyst Block",
+  "block.crystal_craft.polished_amethyst_slab": "Polished Amethyst Slab",
+  "block.crystal_craft.polished_amethyst_stairs": "Polished Amethyst Stairs",
   "creativetab.crystal_craft.crystal_craft_blocks": "Crystal Craft Blocks",
   "creativetab.crystal_craft.crystal_craft_materials": "Crystal Craft Materials",
   "gui.crystal_craft.crystalcarving_table": "Crystal Carving",

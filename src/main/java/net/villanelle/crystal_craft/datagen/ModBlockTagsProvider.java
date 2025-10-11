@@ -19,6 +19,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.CRYSTAL_CARVING_TABLE.get());
+                .add(ModBlocks.CRYSTAL_CARVING_TABLE.get())
+                .add(ModBlocks.POLISHED_AMETHYST_BLOCK.get());
     }
 }
