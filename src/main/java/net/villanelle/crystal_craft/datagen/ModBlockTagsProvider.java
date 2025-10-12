@@ -20,6 +20,14 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.CRYSTAL_CARVING_TABLE.get())
-                .add(ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+                .add(ModBlocks.POLISHED_AMETHYST_BLOCK.get())
+                .add(ModBlocks.POLISHED_AMETHYST_STAIRS.get())
+                .add(ModBlocks.POLISHED_AMETHYST_SLAB.get())
+                .add(ModBlocks.AMETHYST_STAIRS.get())
+                .add(ModBlocks.AMETHYST_SLAB.get());
+
+        tag(BlockTags.WALLS)
+                .add(ModBlocks.POLISHED_AMETHYST_WALL.get())
+                .add(ModBlocks.AMETHYST_WALL.get());
     }
 }

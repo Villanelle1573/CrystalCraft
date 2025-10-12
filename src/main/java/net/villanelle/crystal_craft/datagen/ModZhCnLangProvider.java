@@ -19,6 +19,10 @@ public class ModZhCnLangProvider extends LanguageProvider {
         add(ModBlocks.POLISHED_AMETHYST_BLOCK.get(), "磨制紫水晶块");
         add(ModBlocks.POLISHED_AMETHYST_STAIRS.get(), "磨制紫水晶楼梯");
         add(ModBlocks.POLISHED_AMETHYST_SLAB.get(), "磨制紫水晶台阶");
+        add(ModBlocks.POLISHED_AMETHYST_WALL.get(), "磨制紫水晶墙");
+        add(ModBlocks.AMETHYST_STAIRS.get(), "紫水晶楼梯");
+        add(ModBlocks.AMETHYST_SLAB.get(), "紫水晶台阶");
+        add(ModBlocks.AMETHYST_WALL.get(), "紫水晶墙");
 
         add("creativetab.crystal_craft.crystal_craft_blocks", "晶饰工艺方块");
         add("creativetab.crystal_craft.crystal_craft_materials", "晶饰工艺材料");

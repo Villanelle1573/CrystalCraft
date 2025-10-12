@@ -2,10 +2,7 @@ package net.villanelle.crystal_craft.init;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -44,6 +41,31 @@ public class ModBlocks {
     public static final DeferredBlock<SlabBlock> POLISHED_AMETHYST_SLAB = registerBlock(
             "polished_amethyst_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<WallBlock> POLISHED_AMETHYST_WALL = registerBlock(
+            "polished_amethyst_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<StairBlock> AMETHYST_STAIRS = registerBlock(
+            "amethyst_stairs",
+            () -> new StairBlock(Blocks.AMETHYST_BLOCK.defaultBlockState(),
+                    BlockBehaviour.Properties.of()
+                            .sound(SoundType.AMETHYST)
+                            .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<SlabBlock> AMETHYST_SLAB = registerBlock(
+            "amethyst_slab",
+            () -> new SlabBlock(BlockBehaviour.Properties.of()
+                    .sound(SoundType.AMETHYST)
+                    .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<WallBlock> AMETHYST_WALL = registerBlock(
+            "amethyst_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.AMETHYST)
                     .requiresCorrectToolForDrops()));
 

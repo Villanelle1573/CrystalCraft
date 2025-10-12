@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
 import net.villanelle.crystal_craft.init.ModBlocks;
@@ -48,5 +49,23 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get(), 2);
+
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+
+        stairBuilder(ModBlocks.AMETHYST_STAIRS, Ingredient.of(Blocks.AMETHYST_BLOCK))
+                .unlockedBy(getHasName(Blocks.AMETHYST_BLOCK), has(Blocks.AMETHYST_BLOCK))
+                .save(recipeOutput);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
+
+        slab(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
+
+        wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
     }
 }

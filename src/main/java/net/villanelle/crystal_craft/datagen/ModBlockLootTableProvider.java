@@ -21,6 +21,11 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(ModBlocks.POLISHED_AMETHYST_STAIRS.get());
         add(ModBlocks.POLISHED_AMETHYST_SLAB.get(),
                 block -> (createSlabItemTable(ModBlocks.POLISHED_AMETHYST_SLAB.get())));
+        dropSelf(ModBlocks.POLISHED_AMETHYST_WALL.get());
+        dropSelf(ModBlocks.AMETHYST_STAIRS.get());
+        add(ModBlocks.AMETHYST_SLAB.get(),
+                block -> (createSlabItemTable(ModBlocks.AMETHYST_SLAB.get())));
+        dropSelf(ModBlocks.AMETHYST_WALL.get());
     }
 
     @Override

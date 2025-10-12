@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "crystal_craft:block/polished_amethyst_block"
+  }
+}

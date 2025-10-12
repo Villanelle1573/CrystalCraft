@@ -1,8 +1,12 @@
 {
+  "block.crystal_craft.amethyst_slab": "紫水晶台阶",
+  "block.crystal_craft.amethyst_stairs": "紫水晶楼梯",
+  "block.crystal_craft.amethyst_wall": "紫水晶墙",
   "block.crystal_craft.crystalcarving_table": "晶雕台",
   "block.crystal_craft.polished_amethyst_block": "磨制紫水晶块",
   "block.crystal_craft.polished_amethyst_slab": "磨制紫水晶台阶",
   "block.crystal_craft.polished_amethyst_stairs": "磨制紫水晶楼梯",
+  "block.crystal_craft.polished_amethyst_wall": "磨制紫水晶墙",
   "creativetab.crystal_craft.crystal_craft_blocks": "晶饰工艺方块",
   "creativetab.crystal_craft.crystal_craft_materials": "晶饰工艺材料",
   "gui.crystal_craft.crystalcarving_table": "晶体雕琢",

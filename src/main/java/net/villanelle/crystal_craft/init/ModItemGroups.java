@@ -22,9 +22,13 @@ public class ModItemGroups {
                     .title(Component.translatable("creativetab.crystal_craft.crystal_craft_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.CRYSTAL_CARVING_TABLE);
+                        output.accept(ModBlocks.AMETHYST_STAIRS);
+                        output.accept(ModBlocks.AMETHYST_SLAB);
+                        output.accept(ModBlocks.AMETHYST_WALL);
                         output.accept(ModBlocks.POLISHED_AMETHYST_BLOCK);
                         output.accept(ModBlocks.POLISHED_AMETHYST_STAIRS);
                         output.accept(ModBlocks.POLISHED_AMETHYST_SLAB);
+                        output.accept(ModBlocks.POLISHED_AMETHYST_WALL);
                     }).build());
 
     public static final Supplier<CreativeModeTab> Crystal_Craft_Materials = CCT.register("crystal_craft_materials",

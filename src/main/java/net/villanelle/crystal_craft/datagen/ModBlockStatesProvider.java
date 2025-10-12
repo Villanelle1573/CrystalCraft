@@ -2,6 +2,7 @@ package net.villanelle.crystal_craft.datagen;
 
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SlabBlock;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
@@ -41,9 +42,17 @@ public class ModBlockStatesProvider extends BlockStateProvider {
 
         stairsBlock(ModBlocks.POLISHED_AMETHYST_STAIRS.get(), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()));
         slabBlock(ModBlocks.POLISHED_AMETHYST_SLAB.get(), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()));
+        wallBlock(ModBlocks.POLISHED_AMETHYST_WALL.get(), blockTexture(ModBlocks.POLISHED_AMETHYST_BLOCK.get()));
+
+        stairsBlock(ModBlocks.AMETHYST_STAIRS.get(), blockTexture(Blocks.AMETHYST_BLOCK));
+        slabBlock(ModBlocks.AMETHYST_SLAB.get(), blockTexture(Blocks.AMETHYST_BLOCK), blockTexture(Blocks.AMETHYST_BLOCK));
+        wallBlock(ModBlocks.AMETHYST_WALL.get(), blockTexture(Blocks.AMETHYST_BLOCK));
 
         blockItem(ModBlocks.POLISHED_AMETHYST_STAIRS);
         blockItem(ModBlocks.POLISHED_AMETHYST_SLAB);
+
+        blockItem(ModBlocks.AMETHYST_STAIRS);
+        blockItem(ModBlocks.AMETHYST_SLAB);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {
