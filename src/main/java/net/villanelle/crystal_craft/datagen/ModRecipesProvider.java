@@ -2,12 +2,11 @@ package net.villanelle.crystal_craft.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.ShapedRecipe;
+import net.minecraft.world.item.crafting.ShapelessRecipe;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.StairBlock;
 import net.neoforged.neoforge.common.conditions.IConditionBuilder;
@@ -67,5 +66,21 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
         wall(recipeOutput, RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
         stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ModItems.AMETHYST_CANDY, 3)
+                .requires(Items.SUGAR)
+                .requires(Items.AMETHYST_SHARD)
+                .unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.AMETHYST_PICKAXE)
+                .pattern("APA")
+                .pattern(" S ")
+                .pattern(" S ")
+                .define('A', Items.AMETHYST_SHARD)
+                .define('P', ModItems.POLISHED_AMETHYST)
+                .define('S', Items.STICK)
+                .unlockedBy(getHasName(ModItems.POLISHED_AMETHYST), has(ModItems.POLISHED_AMETHYST))
+                .save(recipeOutput);
     }
 }

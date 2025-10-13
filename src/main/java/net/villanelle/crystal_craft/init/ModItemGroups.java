@@ -19,7 +19,7 @@ public class ModItemGroups {
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModBlocks.CRYSTAL_CARVING_TABLE.get()))
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .title(Component.translatable("creativetab.crystal_craft.crystal_craft_blocks"))
+                    .title(Component.translatable("itemGroup.crystal_craft.crystal_craft_blocks"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.CRYSTAL_CARVING_TABLE);
                         output.accept(ModBlocks.AMETHYST_STAIRS);
@@ -31,13 +31,15 @@ public class ModItemGroups {
                         output.accept(ModBlocks.POLISHED_AMETHYST_WALL);
                     }).build());
 
-    public static final Supplier<CreativeModeTab> Crystal_Craft_Materials = CCT.register("crystal_craft_materials",
+    public static final Supplier<CreativeModeTab> Crystal_Craft_Materials = CCT.register("crystal_craft_items",
             () -> CreativeModeTab.builder()
                     .icon(() -> new ItemStack(ModItems.POLISHED_AMETHYST.get()))
                     .withTabsBefore(ResourceLocation.fromNamespaceAndPath(CrystalCraft.MOD_ID, "crystal_craft_blocks"))
-                    .title(Component.translatable("creativetab.crystal_craft.crystal_craft_materials"))
+                    .title(Component.translatable("itemGroup.crystal_craft.crystal_craft_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.POLISHED_AMETHYST);
+                        output.accept(ModItems.AMETHYST_CANDY);
+                        output.accept(ModItems.AMETHYST_PICKAXE);
                     }).build());
 
     public static void register(IEventBus eventBus) {

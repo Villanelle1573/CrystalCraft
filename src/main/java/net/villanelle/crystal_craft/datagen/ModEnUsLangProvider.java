@@ -14,6 +14,8 @@ public class ModEnUsLangProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add(ModItems.POLISHED_AMETHYST.get(), "Polished Amethyst");
+        add(ModItems.AMETHYST_CANDY.get(), "Amethyst Candy");
+        add(ModItems.AMETHYST_PICKAXE.get(), "Amethyst Pickaxe");
 
         add(ModBlocks.CRYSTAL_CARVING_TABLE.get(), "Crystal Carving Table");
         add(ModBlocks.POLISHED_AMETHYST_BLOCK.get(), "Polished Amethyst Block");
@@ -24,8 +26,10 @@ public class ModEnUsLangProvider extends LanguageProvider {
         add(ModBlocks.AMETHYST_SLAB.get(), "Amethyst Slab");
         add(ModBlocks.AMETHYST_WALL.get(), "Amethyst Wall");
 
-        add("creativetab.crystal_craft.crystal_craft_blocks", "Crystal Craft Blocks");
-        add("creativetab.crystal_craft.crystal_craft_materials", "Crystal Craft Materials");
+        add("itemGroup.crystal_craft.crystal_craft_blocks", "Crystal Craft Blocks");
+        add("itemGroup.crystal_craft.crystal_craft_items", "Crystal Craft Items");
+
+        add("tooltip.crystal_craft.amethyst_pickaxe", "Can Mine Budding Amethyst");
 
         add("gui.crystal_craft.crystalcarving_table", "Crystal Carving");
     }

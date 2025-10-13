@@ -14,6 +14,8 @@ public class ModZhCnLangProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add(ModItems.POLISHED_AMETHYST.get(), "磨制紫水晶");
+        add(ModItems.AMETHYST_CANDY.get(), "紫晶糖果");
+        add(ModItems.AMETHYST_PICKAXE.get(), "紫水晶镐");
 
         add(ModBlocks.CRYSTAL_CARVING_TABLE.get(), "晶雕台");
         add(ModBlocks.POLISHED_AMETHYST_BLOCK.get(), "磨制紫水晶块");
@@ -24,8 +26,10 @@ public class ModZhCnLangProvider extends LanguageProvider {
         add(ModBlocks.AMETHYST_SLAB.get(), "紫水晶台阶");
         add(ModBlocks.AMETHYST_WALL.get(), "紫水晶墙");
 
-        add("creativetab.crystal_craft.crystal_craft_blocks", "晶饰工艺方块");
-        add("creativetab.crystal_craft.crystal_craft_materials", "晶饰工艺材料");
+        add("itemGroup.crystal_craft.crystal_craft_blocks", "晶饰工艺方块");
+        add("itemGroup.crystal_craft.crystal_craft_items", "晶饰工艺物品");
+
+        add("tooltip.crystal_craft.amethyst_pickaxe", "可挖掘紫水晶母岩");
 
         add("gui.crystal_craft.crystalcarving_table", "晶体雕琢");
     }

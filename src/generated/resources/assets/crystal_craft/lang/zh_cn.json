@@ -7,8 +7,11 @@
   "block.crystal_craft.polished_amethyst_slab": "磨制紫水晶台阶",
   "block.crystal_craft.polished_amethyst_stairs": "磨制紫水晶楼梯",
   "block.crystal_craft.polished_amethyst_wall": "磨制紫水晶墙",
-  "creativetab.crystal_craft.crystal_craft_blocks": "晶饰工艺方块",
-  "creativetab.crystal_craft.crystal_craft_materials": "晶饰工艺材料",
   "gui.crystal_craft.crystalcarving_table": "晶体雕琢",
-  "item.crystal_craft.polished_amethyst": "磨制紫水晶"
+  "item.crystal_craft.amethyst_candy": "紫晶糖果",
+  "item.crystal_craft.amethyst_pickaxe": "紫水晶镐",
+  "item.crystal_craft.polished_amethyst": "磨制紫水晶",
+  "itemGroup.crystal_craft.crystal_craft_blocks": "晶饰工艺方块",
+  "itemGroup.crystal_craft.crystal_craft_items": "晶饰工艺物品",
+  "tooltip.crystal_craft.amethyst_pickaxe": "可挖掘紫水晶母岩"
 }

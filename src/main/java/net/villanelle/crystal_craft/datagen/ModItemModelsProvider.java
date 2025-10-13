@@ -19,6 +19,8 @@ public class ModItemModelsProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         basicItem(ModItems.POLISHED_AMETHYST.get());
+        basicItem(ModItems.AMETHYST_CANDY.get());
+        basicItem(ModItems.AMETHYST_PICKAXE.get());
 
         wallItem(ModBlocks.POLISHED_AMETHYST_WALL, ModBlocks.POLISHED_AMETHYST_BLOCK);
         wallItem(ModBlocks.AMETHYST_WALL, Blocks.AMETHYST_BLOCK);
