@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.villanelle.crystal_craft.CrystalCraft;
 import net.villanelle.crystal_craft.block.CrystalCarvingTable;
+import net.villanelle.crystal_craft.block.IronGrateBlock;
 
 import java.util.function.Supplier;
 
@@ -68,6 +69,9 @@ public class ModBlocks {
             () -> new WallBlock(BlockBehaviour.Properties.of()
                     .sound(SoundType.AMETHYST)
                     .requiresCorrectToolForDrops()));
+
+    public static final DeferredBlock<Block> IRON_GRATE = registerBlock(
+            "iron_grate", IronGrateBlock::new);
 
     private static <T extends Block> void registerBlockItem(DeferredBlock<T> block, String name) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

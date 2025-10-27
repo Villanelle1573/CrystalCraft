@@ -25,6 +25,7 @@ public class ModEnUsLangProvider extends LanguageProvider {
         add(ModBlocks.AMETHYST_STAIRS.get(), "Amethyst Stairs");
         add(ModBlocks.AMETHYST_SLAB.get(), "Amethyst Slab");
         add(ModBlocks.AMETHYST_WALL.get(), "Amethyst Wall");
+        add(ModBlocks.IRON_GRATE.get(), "Iron Grate");
 
         add("itemGroup.crystal_craft.crystal_craft_blocks", "Crystal Craft Blocks");
         add("itemGroup.crystal_craft.crystal_craft_items", "Crystal Craft Items");

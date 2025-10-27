@@ -53,6 +53,8 @@ public class ModBlockStatesProvider extends BlockStateProvider {
 
         blockItem(ModBlocks.AMETHYST_STAIRS);
         blockItem(ModBlocks.AMETHYST_SLAB);
+
+        blockWithItem(ModBlocks.IRON_GRATE);
     }
 
     private void blockWithItem(DeferredBlock<?> deferredBlock) {

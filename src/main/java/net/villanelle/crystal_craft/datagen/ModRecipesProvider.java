@@ -82,5 +82,24 @@ public class ModRecipesProvider extends RecipeProvider implements IConditionBuil
                 .define('S', Items.STICK)
                 .unlockedBy(getHasName(ModItems.POLISHED_AMETHYST), has(ModItems.POLISHED_AMETHYST))
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.IRON_GRATE, 4)
+                .pattern(" I ")
+                .pattern("I I")
+                .pattern(" I ")
+                .define('I', Items.IRON_BLOCK)
+                .unlockedBy(getHasName(Items.IRON_BLOCK), has(Items.IRON_BLOCK))
+                .save(recipeOutput);
+        stonecutterResultFromBase(recipeOutput, RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.IRON_GRATE, Blocks.IRON_BLOCK, 4);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.BUDDING_AMETHYST, 2)
+                .pattern(" A ")
+                .pattern("ABA")
+                .pattern(" A ")
+                .define('A', Items.AMETHYST_SHARD)
+                .define('B', Items.BUDDING_AMETHYST)
+                .unlockedBy(getHasName(Items.BUDDING_AMETHYST), has(Items.BUDDING_AMETHYST))
+                .save(recipeOutput);
     }
 }

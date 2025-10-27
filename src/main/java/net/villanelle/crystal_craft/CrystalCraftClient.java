@@ -1,6 +1,8 @@
 package net.villanelle.crystal_craft;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
@@ -10,6 +12,7 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 import net.villanelle.crystal_craft.client.gui.screen.CrystalCarvingScreen;
+import net.villanelle.crystal_craft.init.ModBlocks;
 import net.villanelle.crystal_craft.init.ModMenuTypes;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
@@ -34,5 +37,9 @@ public class CrystalCraftClient {
         // Some client setup code
         CrystalCraft.LOGGER.info("HELLO FROM CLIENT SETUP");
         CrystalCraft.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+
+        event.enqueueWork(() -> {
+            ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_GRATE.get(), RenderType.cutout()); // 透明方块注册
+        });
     }
 }
