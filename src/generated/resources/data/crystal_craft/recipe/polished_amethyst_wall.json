@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "#": {
-      "item": "crystal_craft:polished_amethyst_block"
-    }
+    "#": "crystal_craft:polished_amethyst_block"
   },
   "pattern": [
     "###",

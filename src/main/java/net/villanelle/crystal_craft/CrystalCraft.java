@@ -1,6 +1,5 @@
 package net.villanelle.crystal_craft;
 
-import net.minecraft.resources.ResourceLocation;
 import net.villanelle.crystal_craft.init.*;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
@@ -27,18 +26,16 @@ public class CrystalCraft {
 
         NeoForge.EVENT_BUS.register(this);
 
-        ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModItemGroups.register(modEventBus);
-        ModMenuTypes.register(modEventBus);
-        ModRecipeTypes.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModItemGroups.register(modEventBus);;
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
 
-    public static @NotNull ResourceLocation of(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
-    }
+//    public static @NotNull ResourceLocation of(String path) {
+//        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
+//    }
 
     private void commonSetup(FMLCommonSetupEvent event) {
         LOGGER.info("HELLO FROM COMMON SETUP");

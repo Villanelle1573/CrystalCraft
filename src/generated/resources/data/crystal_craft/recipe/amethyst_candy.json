@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    {
-      "item": "minecraft:sugar"
-    },
-    {
-      "item": "minecraft:amethyst_shard"
-    }
+    "minecraft:sugar",
+    "minecraft:amethyst_shard"
   ],
   "result": {
     "count": 3,

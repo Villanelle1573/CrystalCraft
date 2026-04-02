@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": "minecraft:amethyst_shard"
+  },
+  "pattern": [
+    "A ",
+    " A"
+  ],
+  "result": {
+    "count": 2,
+    "id": "crystal_craft:polished_amethyst"
+  }
+}
