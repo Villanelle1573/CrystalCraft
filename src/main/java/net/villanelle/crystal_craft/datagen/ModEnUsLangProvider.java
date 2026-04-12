@@ -16,8 +16,9 @@ public class ModEnUsLangProvider extends LanguageProvider {
         add(ModItems.POLISHED_AMETHYST.get(), "Polished Amethyst");
         add(ModItems.AMETHYST_CANDY.get(), "Amethyst Candy");
         add(ModItems.AMETHYST_PICKAXE.get(), "Amethyst Pickaxe");
+        add(ModItems.GRINDING_WHEEL.get(), "Grinding Wheel");
+        add(ModItems.WIRE_SAW.get(), "Wire Saw");
 
-        add(ModBlocks.CRYSTAL_CARVING_TABLE.get(), "Crystal Carving Table");
         add(ModBlocks.POLISHED_AMETHYST_BLOCK.get(), "Polished Amethyst Block");
         add(ModBlocks.POLISHED_AMETHYST_STAIRS.get(), "Polished Amethyst Stairs");
         add(ModBlocks.POLISHED_AMETHYST_SLAB.get(), "Polished Amethyst Slab");
@@ -26,12 +27,13 @@ public class ModEnUsLangProvider extends LanguageProvider {
         add(ModBlocks.AMETHYST_SLAB.get(), "Amethyst Slab");
         add(ModBlocks.AMETHYST_WALL.get(), "Amethyst Wall");
         add(ModBlocks.IRON_GRATE.get(), "Iron Grate");
+        add(ModBlocks.CHIPPING_TABLE.get(), "Chipping Table");
 
         add("itemGroup.crystal_craft.crystal_craft_blocks", "Crystal Craft Blocks");
         add("itemGroup.crystal_craft.crystal_craft_items", "Crystal Craft Items");
 
         add("tooltip.crystal_craft.amethyst_pickaxe", "Can Mine Budding Amethyst");
 
-        add("gui.crystal_craft.crystalcarving_table", "Crystal Carving");
+        add("container.chipping_table_title", "Chipping Table");
     }
 }

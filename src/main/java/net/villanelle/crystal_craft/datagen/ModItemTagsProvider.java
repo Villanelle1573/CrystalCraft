@@ -2,21 +2,21 @@ package net.villanelle.crystal_craft.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.common.data.ItemTagsProvider;
 import net.villanelle.crystal_craft.CrystalCraft;
-import org.jetbrains.annotations.Nullable;
+import net.villanelle.crystal_craft.init.ModItemTags;
+import net.villanelle.crystal_craft.init.ModItems;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
-    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, CompletableFuture<TagLookup<Block>> blockTags, @Nullable ExistingFileHelper existingFileHelper) {
-        super(output, lookupProvider, blockTags, CrystalCraft.MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(output, lookupProvider, CrystalCraft.MOD_ID);
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider provider) {
-
+    protected void addTags(HolderLookup.Provider registries) {
+        tag(ModItemTags.CHIPPING_TOOLS).add(ModItems.GRINDING_WHEEL.get());
+        tag(ModItemTags.CHIPPING_TOOLS).add(ModItems.WIRE_SAW.get());
     }
 }

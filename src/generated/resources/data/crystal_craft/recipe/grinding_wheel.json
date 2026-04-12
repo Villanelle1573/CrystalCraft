@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "G": "minecraft:granite",
+    "S": "minecraft:stick"
+  },
+  "pattern": [
+    "SGS"
+  ],
+  "result": {
+    "id": "crystal_craft:grinding_wheel"
+  }
+}

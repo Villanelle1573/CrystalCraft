@@ -1,19 +1,18 @@
 package net.villanelle.crystal_craft;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
-import net.villanelle.crystal_craft.client.gui.screen.CrystalCarvingScreen;
-import net.villanelle.crystal_craft.init.ModBlocks;
-import net.villanelle.crystal_craft.init.ModMenuTypes;
+import net.villanelle.crystal_craft.client.gui.screen.ChippingScreen;
+
+import static net.villanelle.crystal_craft.init.ModMenuTypes.CHIPPING_MENU;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = CrystalCraft.MOD_ID, dist = Dist.CLIENT)
@@ -27,9 +26,9 @@ public class CrystalCraftClient {
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
     }
 
-    @SubscribeEvent
-    static void onRegisterMenuScreens(net.neoforged.neoforge.client.event.RegisterMenuScreensEvent event) {
-        event.register(ModMenuTypes.CRYSTAL_CARVING_MENU.get(), CrystalCarvingScreen::new);
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(CHIPPING_MENU.get(), ChippingScreen::new);
     }
 
     @SubscribeEvent
@@ -37,9 +36,5 @@ public class CrystalCraftClient {
         // Some client setup code
         CrystalCraft.LOGGER.info("HELLO FROM CLIENT SETUP");
         CrystalCraft.LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-
-        event.enqueueWork(() -> {
-            ItemBlockRenderTypes.setRenderLayer(ModBlocks.IRON_GRATE.get(), RenderType.cutout()); // 透明方块注册
-        });
     }
 }

@@ -16,8 +16,9 @@ public class ModZhCnLangProvider extends LanguageProvider {
         add(ModItems.POLISHED_AMETHYST.get(), "磨制紫水晶");
         add(ModItems.AMETHYST_CANDY.get(), "紫晶糖果");
         add(ModItems.AMETHYST_PICKAXE.get(), "紫水晶镐");
+        add(ModItems.GRINDING_WHEEL.get(), "磨轮");
+        add(ModItems.WIRE_SAW.get(), "线锯");
 
-        add(ModBlocks.CRYSTAL_CARVING_TABLE.get(), "晶雕台");
         add(ModBlocks.POLISHED_AMETHYST_BLOCK.get(), "磨制紫水晶块");
         add(ModBlocks.POLISHED_AMETHYST_STAIRS.get(), "磨制紫水晶楼梯");
         add(ModBlocks.POLISHED_AMETHYST_SLAB.get(), "磨制紫水晶台阶");
@@ -26,12 +27,13 @@ public class ModZhCnLangProvider extends LanguageProvider {
         add(ModBlocks.AMETHYST_SLAB.get(), "紫水晶台阶");
         add(ModBlocks.AMETHYST_WALL.get(), "紫水晶墙");
         add(ModBlocks.IRON_GRATE.get(), "铁格栅");
+        add(ModBlocks.CHIPPING_TABLE.get(), "雕研台");
 
         add("itemGroup.crystal_craft.crystal_craft_blocks", "晶饰工艺方块");
         add("itemGroup.crystal_craft.crystal_craft_items", "晶饰工艺物品");
 
         add("tooltip.crystal_craft.amethyst_pickaxe", "可挖掘紫水晶母岩");
 
-        add("gui.crystal_craft.crystalcarving_table", "晶体雕琢");
+        add("container.chipping_table_title", "雕研台");
     }
 }

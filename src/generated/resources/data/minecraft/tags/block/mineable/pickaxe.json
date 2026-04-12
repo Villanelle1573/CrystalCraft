@@ -1,11 +1,13 @@
 {
   "values": [
-    "crystal_craft:crystalcarving_table",
     "crystal_craft:polished_amethyst_block",
     "crystal_craft:polished_amethyst_stairs",
     "crystal_craft:polished_amethyst_slab",
+    "crystal_craft:polished_amethyst_wall",
     "crystal_craft:amethyst_stairs",
     "crystal_craft:amethyst_slab",
-    "crystal_craft:iron_grate"
+    "crystal_craft:amethyst_wall",
+    "crystal_craft:iron_grate",
+    "crystal_craft:chipping_table"
   ]
 }

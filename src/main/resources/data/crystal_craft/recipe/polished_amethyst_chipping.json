@@ -1,0 +1,7 @@
+{
+  "type": "crystal_craft:chipping",
+  "ingredient": "minecraft:amethyst_shard",
+  "tool": "crystal_craft:grinding_wheel",
+  "result": "crystal_craft:polished_amethyst",
+  "count": 1
+}
