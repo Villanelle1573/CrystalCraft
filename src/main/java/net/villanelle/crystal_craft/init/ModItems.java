@@ -22,6 +22,14 @@ public class ModItems {
     public static final DeferredItem<Item> AMETHYST_PICKAXE = ITEMS.registerItem("amethyst_pickaxe",
             p -> new AmethystPickaxeItem(ModToolMaterials.AMETHYST, 2, -2.8f, p));
 
+    // 磨轮
+    public static final DeferredItem<Item> GRINDING_WHEEL = ITEMS.registerSimpleItem("grinding_wheel",
+            () -> new Item.Properties().durability(256).stacksTo(1));
+
+    // 线锯
+    public static final DeferredItem<Item> WIRE_SAW = ITEMS.registerSimpleItem("wire_saw",
+            () -> new Item.Properties().durability(256).stacksTo(1));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

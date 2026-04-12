@@ -8,6 +8,7 @@ import net.villanelle.crystal_craft.CrystalCraft;
 
 public class ModItemTags {
     public static final TagKey<Item> AMETHYST_TOOL_MATERIALS = bind("amethyst_tool_materials");
+    public static final TagKey<Item> CHIPPING_TOOLS = bind("chipping_tools");
 
     private static TagKey<Item> bind(String name) {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(CrystalCraft.MOD_ID, name));

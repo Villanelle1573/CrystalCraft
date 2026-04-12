@@ -6,6 +6,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.villanelle.crystal_craft.CrystalCraft;
+import net.villanelle.crystal_craft.block.ChippingTableBlock;
 import net.villanelle.crystal_craft.block.IronGrateBlock;
 
 import java.util.function.Function;
@@ -73,6 +74,11 @@ public class ModBlocks {
                     .isRedstoneConductor((state, level, pos) -> false)
                     .isSuffocating((state, level, pos) -> false)
                     .isViewBlocking((state, level, pos) -> false), true);
+
+    //雕研台
+    public static final DeferredBlock<Block> CHIPPING_TABLE = registerBlock(
+            "chipping_table",
+            ChippingTableBlock :: new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE), true);
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

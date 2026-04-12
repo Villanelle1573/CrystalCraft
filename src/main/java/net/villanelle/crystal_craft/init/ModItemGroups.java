@@ -24,6 +24,7 @@ public class ModItemGroups {
                         output.accept(ModBlocks.AMETHYST_STAIRS);
                         output.accept(ModBlocks.AMETHYST_SLAB);
                         output.accept(ModBlocks.AMETHYST_WALL);
+                        output.accept(ModBlocks.CHIPPING_TABLE);
                         output.accept(ModBlocks.POLISHED_AMETHYST_BLOCK);
                         output.accept(ModBlocks.POLISHED_AMETHYST_STAIRS);
                         output.accept(ModBlocks.POLISHED_AMETHYST_SLAB);
@@ -40,6 +41,8 @@ public class ModItemGroups {
                         output.accept(ModItems.POLISHED_AMETHYST);
                         output.accept(ModItems.AMETHYST_CANDY);
                         output.accept(ModItems.AMETHYST_PICKAXE);
+                        output.accept(ModItems.GRINDING_WHEEL);
+                        output.accept(ModItems.WIRE_SAW);
                     }).build());
 
     public static void register(IEventBus eventBus) {

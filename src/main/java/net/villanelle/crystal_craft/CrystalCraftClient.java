@@ -7,8 +7,12 @@ import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.gui.ConfigurationScreen;
 import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
+import net.villanelle.crystal_craft.client.gui.screen.ChippingScreen;
+
+import static net.villanelle.crystal_craft.init.ModMenuTypes.CHIPPING_MENU;
 
 // This class will not load on dedicated servers. Accessing client side code from here is safe.
 @Mod(value = CrystalCraft.MOD_ID, dist = Dist.CLIENT)
@@ -20,6 +24,11 @@ public class CrystalCraftClient {
         // The config screen is accessed by going to the Mods screen > clicking on your mod > clicking on config.
         // Do not forget to add translations for your config options to the en_us.json file.
         container.registerExtensionPoint(IConfigScreenFactory.class, ConfigurationScreen::new);
+    }
+
+    @SubscribeEvent // on the mod event bus only on the physical client
+    public static void registerScreens(RegisterMenuScreensEvent event) {
+        event.register(CHIPPING_MENU.get(), ChippingScreen::new);
     }
 
     @SubscribeEvent

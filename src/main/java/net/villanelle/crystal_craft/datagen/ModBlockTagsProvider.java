@@ -21,9 +21,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
                 .add(ModBlocks.POLISHED_AMETHYST_BLOCK.get())
                 .add(ModBlocks.POLISHED_AMETHYST_STAIRS.get())
                 .add(ModBlocks.POLISHED_AMETHYST_SLAB.get())
+                .add(ModBlocks.POLISHED_AMETHYST_WALL.get())
                 .add(ModBlocks.AMETHYST_STAIRS.get())
                 .add(ModBlocks.AMETHYST_SLAB.get())
-                .add(ModBlocks.IRON_GRATE.get());
+                .add(ModBlocks.AMETHYST_WALL.get())
+                .add(ModBlocks.IRON_GRATE.get())
+                .add(ModBlocks.CHIPPING_TABLE.get());
 
         tag(BlockTags.WALLS)
                 .add(ModBlocks.POLISHED_AMETHYST_WALL.get())

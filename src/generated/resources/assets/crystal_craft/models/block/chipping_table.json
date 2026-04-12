@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "crystal_craft:block/chipping_table_bottom",
+    "side": "crystal_craft:block/chipping_table_side",
+    "top": "crystal_craft:block/chipping_table_top"
+  }
+}
