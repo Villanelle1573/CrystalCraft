@@ -28,30 +28,38 @@ public class ModRecipesProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
-        // 磨制紫水晶做磨制紫水晶块
+        // 紫水晶块和磨制紫水晶做磨制紫水晶块
         shaped(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_BLOCK)
                 .pattern("PP")
                 .pattern("PP")
                 .define('P', ModItems.POLISHED_AMETHYST)
                 .unlockedBy(getHasName(ModItems.POLISHED_AMETHYST), has(ModItems.POLISHED_AMETHYST))
                 .save(output);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_BLOCK.get(), Blocks.AMETHYST_BLOCK);
 
-        // 磨制紫水晶块做磨制紫水晶楼梯
+        // 紫水晶块和磨制紫水晶块做磨制紫水晶楼梯
         stairBuilder(ModBlocks.POLISHED_AMETHYST_STAIRS, Ingredient.of(ModBlocks.POLISHED_AMETHYST_BLOCK))
                 .unlockedBy(getHasName(ModBlocks.POLISHED_AMETHYST_BLOCK), has(ModBlocks.POLISHED_AMETHYST_BLOCK))
                 .save(output);
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.POLISHED_AMETHYST_STAIRS.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
 
-        // 磨制紫水晶块做磨制紫水晶台阶
+        // 紫水晶块和磨制紫水晶块做磨制紫水晶台阶
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get(), 2);
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
 
-        // 磨制紫水晶块做磨制紫水晶墙
+        // 紫水晶块和磨制紫水晶块做磨制紫水晶墙
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
         stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
                 ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
+                ModBlocks.POLISHED_AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶做紫水晶楼梯
         stairBuilder(ModBlocks.AMETHYST_STAIRS, Ingredient.of(Blocks.AMETHYST_BLOCK))
