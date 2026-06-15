@@ -1,0 +1,7 @@
+{
+  "type": "crystal_craft:chipping",
+  "ingredient": "crystal_craft:polished_amethyst_block",
+  "tool": "crystal_craft:wire_saw",
+  "result": "crystal_craft:polished_amethyst",
+  "count": 4
+}
