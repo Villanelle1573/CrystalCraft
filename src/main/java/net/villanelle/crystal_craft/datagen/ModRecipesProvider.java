@@ -1,22 +1,15 @@
 package net.villanelle.crystal_craft.datagen;
 
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.Criterion;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Blocks;
 import net.villanelle.crystal_craft.init.ModBlocks;
 import net.villanelle.crystal_craft.init.ModItems;
-import net.villanelle.crystal_craft.recipe.chipping.ChippingRecipe;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.function.Supplier;
 
 public class ModRecipesProvider extends RecipeProvider {
     private final HolderLookup.Provider registries;
