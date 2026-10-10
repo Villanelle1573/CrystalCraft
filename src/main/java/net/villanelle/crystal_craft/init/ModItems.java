@@ -1,5 +1,7 @@
 package net.villanelle.crystal_craft.init;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -29,6 +31,11 @@ public class ModItems {
     // 线锯
     public static final DeferredItem<Item> WIRE_SAW = ITEMS.registerSimpleItem("wire_saw",
             () -> new Item.Properties().durability(256).stacksTo(1));
+
+
+    public static ResourceKey<Item> getResourceKey(Item item) {
+        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+    }
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

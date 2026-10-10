@@ -1,5 +1,8 @@
 package net.villanelle.crystal_craft.init;
 
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -79,6 +82,10 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CHIPPING_TABLE = registerBlock(
             "chipping_table",
             ChippingTableBlock :: new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.POLISHED_DEEPSLATE), true);
+
+    public static ResourceKey<Block> getResourceKey(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);
