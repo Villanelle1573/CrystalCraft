@@ -46,7 +46,7 @@ public class ModModelsProvider extends ModelProvider {
 
         blockModels.createHorizontallyRotatedBlock(
                 ModBlocks.CHIPPING_TABLE.get(),
-                TexturedModel.CUBE_TOP_BOTTOM);
+                TexturedModel.CUBE_BOTTOM_TOP);
     }
 
     @Override

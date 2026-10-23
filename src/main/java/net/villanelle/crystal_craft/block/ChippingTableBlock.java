@@ -18,7 +18,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.villanelle.crystal_craft.inventory.ChippingMenu;
 
 public class ChippingTableBlock extends HorizontalDirectionalBlock {
-    public static final MapCodec<ChippingTableBlock> CODEC = simpleCodec(ChippingTableBlock::new);
     private static final Component CONTAINER_TITLE = Component.translatable("container.chipping_table_title");
 
     public ChippingTableBlock(Properties properties) {
@@ -26,11 +25,6 @@ public class ChippingTableBlock extends HorizontalDirectionalBlock {
         this.registerDefaultState(
                 this.getStateDefinition().any().setValue(FACING, Direction.NORTH)
         );
-    }
-
-    @Override
-    protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-        return null;
     }
 
     @Override

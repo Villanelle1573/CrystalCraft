@@ -73,10 +73,10 @@ public class ModBlocks {
             IronGrateBlock :: new, () -> BlockBehaviour.Properties.of().strength(4f, 6f)
                     .sound(SoundType.COPPER_GRATE)
                     .noOcclusion()
-                    .isValidSpawn(Blocks::never)
+                    .isValidSpawn(Blocks :: never)
                     .isRedstoneConductor((state, level, pos) -> false)
                     .isSuffocating((state, level, pos) -> false)
-                    .isViewBlocking((state, level, pos) -> false), true);
+                    .isViewBlocking((state, level, pos, box) -> false), true);
 
     //雕研台
     public static final DeferredBlock<Block> CHIPPING_TABLE = registerBlock(

@@ -33,7 +33,7 @@ public class CrystalCraft {
         ModMenuTypes.register(modEventBus);
         ModRecipeTypes.register(modEventBus);
 
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        modContainer.registerConfig(ModConfig.Type.LOCAL, Config.SPEC);
     }
 
     public static @NotNull Identifier of(String path) {

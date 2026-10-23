@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:polished_amethyst_stairs"
+        "recipes": "crystal_craft:polished_amethyst_stairs"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

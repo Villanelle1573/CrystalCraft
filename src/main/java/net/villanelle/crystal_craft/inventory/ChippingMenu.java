@@ -1,5 +1,6 @@
 package net.villanelle.crystal_craft.inventory;
 
+import net.minecraft.util.Prediction;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -149,7 +150,7 @@ public class ChippingMenu extends AbstractContainerMenu {
             for (int i = 0; i < 3; ++i) {
                 ItemStack itemStack = this.container.getItem(i);
                 if (!itemStack.isEmpty()) {
-                    player.getInventory().placeItemBackInInventory(itemStack);
+                    player.getInventory().placeItemBackInInventory(itemStack, Prediction.SERVER_ONLY);
                 }
             }
         }

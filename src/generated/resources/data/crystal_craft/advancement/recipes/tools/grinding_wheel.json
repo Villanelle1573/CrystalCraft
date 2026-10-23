@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:grinding_wheel"
+        "recipes": "crystal_craft:grinding_wheel"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

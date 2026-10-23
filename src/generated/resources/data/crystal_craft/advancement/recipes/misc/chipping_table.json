@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:chipping_table"
+        "recipes": "crystal_craft:chipping_table"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
