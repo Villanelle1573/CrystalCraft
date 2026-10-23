@@ -2,9 +2,9 @@ package net.villanelle.crystal_craft.init;
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -70,13 +70,14 @@ public class ModBlocks {
     // 铁格栅
     public static final DeferredBlock<Block> IRON_GRATE = registerBlock(
             "iron_grate",
-            IronGrateBlock :: new, () -> BlockBehaviour.Properties.of().strength(4f, 6f)
+            IronGrateBlock :: new, () -> BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(4f, 6f)
+                    .requiresCorrectToolForDrops()
                     .sound(SoundType.COPPER_GRATE)
                     .noOcclusion()
-                    .isValidSpawn(Blocks::never)
+                    .isValidSpawn(Blocks :: never)
                     .isRedstoneConductor((state, level, pos) -> false)
                     .isSuffocating((state, level, pos) -> false)
-                    .isViewBlocking((state, level, pos) -> false), true);
+                    .isViewBlocking((state, level, pos, box) -> false), true);
 
     //雕研台
     public static final DeferredBlock<Block> CHIPPING_TABLE = registerBlock(

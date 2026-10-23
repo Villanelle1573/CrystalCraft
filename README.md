@@ -1,25 +1,66 @@
+# Crystal Craft / 晶饰工艺
 
-Installation information
-=======
+一个以紫水晶为主题的 NeoForge 内容模组：把紫水晶加工成建筑方块，用「雕研台」把原版材料雕琢成新形态，并让紫水晶镐能挖下原本挖不动的紫水晶母岩。
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+## 内容
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+**建筑方块**
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+- 紫水晶楼梯 / 台阶 / 墙
+- 磨制紫水晶块 / 楼梯 / 台阶 / 墙
+- 铁格栅（可含水，透光不透视）
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+**物品**
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+- 磨制紫水晶：雕研台的基础产物
+- 紫晶糖果：恢复 2 点饥饿值，随时可食用
+- 磨轮、线锯：雕研台的两种工具，有耐久，每次雕研消耗 1 点
+- 紫水晶镐：铜级挖掘能力（耐久 190、挖掘速度 5.0），附魔值 20；可以直接挖下紫水晶母岩并掉落本体
+
+**雕研台**
+
+右键打开的两格合成站：左侧放原料，右侧放工具（磨轮或线锯），产物出现在结果格。取走产物消耗 1 个原料和 1 点工具耐久。
+
+| 原料 | 工具 | 产物 |
+| --- | --- | --- |
+| 紫水晶碎片 | 磨轮 | 磨制紫水晶 ×1 |
+| 紫水晶块 | 磨轮 | 磨制紫水晶块 ×1 |
+| 紫水晶块 | 线锯 | 紫水晶碎片 ×4 |
+| 磨制紫水晶块 | 线锯 | 磨制紫水晶 ×4 |
+
+## 环境
+
+| 项 | 版本 |
+| --- | --- |
+| Minecraft | 26.3 |
+| NeoForge | 26.3.0.95 |
+| Java | 25 |
+
+[Jade](https://modrinth.com/mod/jade) 是可选的：装了之后鼠标指向方块能看到名称，不装也不影响模组运行。
+
+## 开发
+
+```bash
+./gradlew build        # 编译并打包到 build/libs
+./gradlew runClient    # 启动带模组的客户端
+./gradlew runData      # 重新生成 src/generated/resources
+```
+
+数据生成产物（配方、战利品表、标签、模型、语言文件）提交在 `src/generated/resources`，改动注册表或数据后需要重跑 `runData` 并一起提交。
+
+代码结构：
+
+```
+src/main/java/net/villanelle/crystal_craft
+├── init/       注册表入口（方块、物品、创造页、菜单、配方类型、数据生成）
+├── block/      雕研台、铁格栅
+├── inventory/  雕研台容器逻辑
+├── recipe/     雕研台配方类型
+├── item/       紫水晶镐、工具材质
+├── client/     雕研台 GUI
+└── datagen/    标签、语言、模型、战利品表、配方生成器
+```
+
+## 许可
+
+MIT，见 [LICENSE](LICENSE)。项目由 [NeoForged MDK](https://github.com/NeoForged/MDK) 起步，其中来自模板的部分遵循其 MIT 许可。

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:polished_amethyst_wall"
+        "recipes": "crystal_craft:polished_amethyst_wall"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

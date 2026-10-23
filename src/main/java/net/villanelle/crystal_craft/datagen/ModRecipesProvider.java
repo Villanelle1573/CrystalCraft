@@ -1,22 +1,22 @@
 package net.villanelle.crystal_craft.datagen;
 
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.PackOutput;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
+import net.minecraft.data.worldgen.BootstrapContext;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.villanelle.crystal_craft.CrystalCraft;
 import net.villanelle.crystal_craft.init.ModBlocks;
 import net.villanelle.crystal_craft.init.ModItems;
 
-import java.util.concurrent.CompletableFuture;
-
 public class ModRecipesProvider extends RecipeProvider {
-    private final HolderLookup.Provider registries;
-
-    protected ModRecipesProvider(HolderLookup.Provider registries, RecipeOutput output) {
-        super(registries, output);
-        this.registries = registries;
+    public ModRecipesProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
@@ -28,48 +28,48 @@ public class ModRecipesProvider extends RecipeProvider {
                 .define('P', ModItems.POLISHED_AMETHYST)
                 .unlockedBy(getHasName(ModItems.POLISHED_AMETHYST), has(ModItems.POLISHED_AMETHYST))
                 .save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_BLOCK.get(), Blocks.AMETHYST_BLOCK);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_BLOCK.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶块和磨制紫水晶块做磨制紫水晶楼梯
         stairBuilder(ModBlocks.POLISHED_AMETHYST_STAIRS, Ingredient.of(ModBlocks.POLISHED_AMETHYST_BLOCK))
                 .unlockedBy(getHasName(ModBlocks.POLISHED_AMETHYST_BLOCK), has(ModBlocks.POLISHED_AMETHYST_BLOCK))
                 .save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_STAIRS.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_STAIRS.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶块和磨制紫水晶块做磨制紫水晶台阶
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get(), 2);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get(), 2);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
 
         // 紫水晶块和磨制紫水晶块做磨制紫水晶墙
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.POLISHED_AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_WALL.get(), ModBlocks.POLISHED_AMETHYST_BLOCK.get());
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.POLISHED_AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶做紫水晶楼梯
         stairBuilder(ModBlocks.AMETHYST_STAIRS, Ingredient.of(Blocks.AMETHYST_BLOCK))
                 .unlockedBy(getHasName(Blocks.AMETHYST_BLOCK), has(Blocks.AMETHYST_BLOCK))
                 .save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_STAIRS.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶做紫水晶台阶
         slab(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK);
-        stonecutterResultFromBase( RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
+
+        stonecutterResultFromBase( RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_SLAB.get(), Blocks.AMETHYST_BLOCK, 2);
 
         // 紫水晶做紫水晶墙
         wall(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.AMETHYST_WALL.get(), Blocks.AMETHYST_BLOCK);
 
         // 紫水晶糖
         shapeless(RecipeCategory.FOOD, ModItems.AMETHYST_CANDY, 3)
@@ -97,8 +97,8 @@ public class ModRecipesProvider extends RecipeProvider {
                 .define('I', Items.IRON_BLOCK)
                 .unlockedBy(getHasName(Items.IRON_BLOCK), has(Items.IRON_BLOCK))
                 .save(output);
-        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS,
-                ModBlocks.IRON_GRATE, Blocks.IRON_BLOCK, 4);
+
+        stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, ModBlocks.IRON_GRATE, Blocks.IRON_BLOCK, 4);
 
         // 紫水晶母岩再生
         shaped(RecipeCategory.MISC, Blocks.BUDDING_AMETHYST, 2)
@@ -108,7 +108,7 @@ public class ModRecipesProvider extends RecipeProvider {
                 .define('A', Items.AMETHYST_SHARD)
                 .define('B', Items.BUDDING_AMETHYST)
                 .unlockedBy(getHasName(Items.BUDDING_AMETHYST), has(Items.BUDDING_AMETHYST))
-                .save(output);
+                .save(output, recipeKey("budding_amethyst_from_amethyst_shard"));
 
         // 雕研台
         shaped(RecipeCategory.MISC, ModBlocks.CHIPPING_TABLE)
@@ -137,20 +137,15 @@ public class ModRecipesProvider extends RecipeProvider {
                 .save(output);
     }
 
-    public static class Runner extends RecipeProvider.Runner {
+    // 这里统一改写成模组命名空间。
+    @Override
+    protected void stonecutterResultFromBase(RecipeCategory category, ItemLike result, ItemLike base, int count) {
+        SingleItemRecipeBuilder.stonecutting(Ingredient.of(base), category, result, count)
+                .unlockedBy(getHasName(base), has(base))
+                .save(this.output, recipeKey(getConversionRecipeName(result, base) + "_stonecutting"));
+    }
 
-        public Runner(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
-            super(packOutput, registries);
-        }
-
-        @Override
-        protected RecipeProvider createRecipeProvider(HolderLookup.Provider registries, RecipeOutput output) {
-            return new ModRecipesProvider(registries, output);
-        }
-
-        @Override
-        public String getName() {
-            return "recipe gen";
-        }
+    private static ResourceKey<Recipe<?>> recipeKey(String path) {
+        return ResourceKey.create(Registries.RECIPE, CrystalCraft.of(path));
     }
 }

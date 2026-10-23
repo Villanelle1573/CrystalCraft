@@ -4,15 +4,12 @@ import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TextureSlot;
 import net.minecraft.client.data.models.model.TexturedModel;
 import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.neoforged.fml.common.Mod;
 import net.villanelle.crystal_craft.CrystalCraft;
 import net.villanelle.crystal_craft.init.ModBlocks;
 import net.villanelle.crystal_craft.init.ModItems;
@@ -28,7 +25,7 @@ public class ModModelsProvider extends ModelProvider {
     protected void registerModels(BlockModelGenerators blockModels, ItemModelGenerators itemModels) {
         itemModels.generateFlatItem(ModItems.POLISHED_AMETHYST.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.AMETHYST_CANDY.get(), ModelTemplates.FLAT_ITEM);
-        itemModels.generateFlatItem(ModItems.AMETHYST_PICKAXE.get(), ModelTemplates.FLAT_ITEM);
+        itemModels.generateFlatItem(ModItems.AMETHYST_PICKAXE.get(), ModelTemplates.FLAT_HANDHELD_ITEM);
         itemModels.generateFlatItem(ModItems.GRINDING_WHEEL.get(), ModelTemplates.FLAT_ITEM);
         itemModels.generateFlatItem(ModItems.WIRE_SAW.get(), ModelTemplates.FLAT_ITEM);
 
@@ -46,7 +43,7 @@ public class ModModelsProvider extends ModelProvider {
 
         blockModels.createHorizontallyRotatedBlock(
                 ModBlocks.CHIPPING_TABLE.get(),
-                TexturedModel.CUBE_TOP_BOTTOM);
+                TexturedModel.CUBE_BOTTOM_TOP);
     }
 
     @Override

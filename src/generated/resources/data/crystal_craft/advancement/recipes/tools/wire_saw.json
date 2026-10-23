@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:wire_saw"
+        "recipes": "crystal_craft:wire_saw"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

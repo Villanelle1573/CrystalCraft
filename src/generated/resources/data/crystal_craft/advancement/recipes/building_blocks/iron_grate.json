@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:iron_grate"
+        "recipes": "crystal_craft:iron_grate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

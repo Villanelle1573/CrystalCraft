@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "crystal_craft:amethyst_candy"
+        "recipes": "crystal_craft:amethyst_candy"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

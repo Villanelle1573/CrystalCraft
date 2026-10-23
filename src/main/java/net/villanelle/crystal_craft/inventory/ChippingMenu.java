@@ -1,5 +1,6 @@
 package net.villanelle.crystal_craft.inventory;
 
+import net.minecraft.util.Prediction;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -92,9 +93,10 @@ public class ChippingMenu extends AbstractContainerMenu {
 
             @Override
             protected void onQuickCraft(ItemStack stack, int amount) {
-                // 快速合成时，根据实际移出的物品数量计算合成次数
-                // 假设每次合成产出stack.getCount()个物品
-                int craftTimes = amount / stack.getCount();
+                // 一次合成的产量就是 stack 的数量。背包放不下整份产物时 amount 会小于产量，
+                // 这里向上取整，保证只要拿走东西就至少消耗一次，避免整除成 0 白拿产物。
+                int perCraft = Math.max(1, stack.getCount());
+                int craftTimes = Math.ceilDiv(Math.max(0, amount), perCraft);
                 for (int i = 0; i < craftTimes; i++) {
                     consumeResources();
                 }
@@ -146,10 +148,10 @@ public class ChippingMenu extends AbstractContainerMenu {
         super.removed(player);
 
         if (!this.level.isClientSide()) {
-            for (int i = 0; i < 3; ++i) {
+            for (int i = 0; i < RESULT_SLOT; ++i) {
                 ItemStack itemStack = this.container.getItem(i);
                 if (!itemStack.isEmpty()) {
-                    player.getInventory().placeItemBackInInventory(itemStack);
+                    player.getInventory().placeItemBackInInventory(itemStack, Prediction.SERVER_ONLY);
                 }
             }
         }
