@@ -148,18 +148,4 @@ public class ModRecipesProvider extends RecipeProvider {
     private static ResourceKey<Recipe<?>> recipeKey(String path) {
         return ResourceKey.create(Registries.RECIPE, CrystalCraft.of(path));
     }
-
-//    public static MultiRegistryBootstrap create() {
-//        return new MultiRegistryBootstrap() {
-//            @Override
-//            public Set<ResourceKey<? extends Registry<?>>> requestedRegistries() {
-//                return Set.of(Registries.RECIPE, Registries.ADVANCEMENT);
-//            }
-//
-//            @Override
-//            public void run(MultiRegistryBootstrap.BootstrapGetter registries) {
-//                new ModRecipesProvider(registries.get(Registries.RECIPE), registries.get(Registries.ADVANCEMENT)).buildRecipes();
-//            }
-//        };
-//    }
 }

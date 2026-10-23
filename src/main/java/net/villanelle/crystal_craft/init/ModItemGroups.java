@@ -10,8 +10,6 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.villanelle.crystal_craft.CrystalCraft;
 
-import java.util.function.Supplier;
-
 public class ModItemGroups {
     public static final DeferredRegister<CreativeModeTab> CCT = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CrystalCraft.MOD_ID);
 
